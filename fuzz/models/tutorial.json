@@ -1,0 +1,22 @@
+{
+  "domains": {
+    "example": {
+      "host": "localhost",
+      "port": 8080,
+      "protocol": "http"
+    }
+  },
+  "endpoints": [
+    {
+      "uri": "/watch",
+      "comment": "watch video",
+      "methods": ["GET"],
+      "input": {
+        "query": {
+          "v": "9bZkp7q19f0",
+          "t": "1m05s"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "domains": {
+    "domainname": {
+      "host": "",
+      "port": null,
+      "protocol": "http"
+    }
+  },
+  "expectations": [
+    ""
+  ],
+  "endpoints": [
+    {
+      "uri": "",
+      "comment": "",
+      "methods": ["GET", "POST", "PUT", "PATCH", "DELETE"],
+      "headers": {
+        "Content-Type": ""
+      },
+      "expectations": [
+        ""
+      ],
+      "timeout": 10.0,
+      "requestsPerSecond": 2.5,
+      "input": {
+        "body": {
+          "foo": ""
+        },
+        "query": {
+          "bar": ""
+        }
+      }
+    }
+  ]
+}

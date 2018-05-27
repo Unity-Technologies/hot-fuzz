@@ -1,0 +1,164 @@
+[MASTER]
+
+ignore=CVS,.env,.git
+jobs=1
+suggestion-mode=yes
+unsafe-load-any-extension=no
+
+[MESSAGES CONTROL]
+
+disable=invalid-name,
+        missing-docstring,
+        line-too-long
+
+enable=c-extension-no-member
+
+[REPORTS]
+
+evaluation=10.0 - ((float(5 * error + warning + refactor + convention) / statement) * 10)
+output-format=text
+reports=no
+score=yes
+
+[REFACTORING]
+max-nested-blocks=5
+never-returning-functions=optparse.Values,sys.exit
+
+[VARIABLES]
+
+allow-global-unused-variables=yes
+callbacks=cb_,
+          _cb
+
+dummy-variables-rgx=_+$|(_[a-zA-Z0-9_]*[a-zA-Z0-9]+?$)|dummy|^ignored_|^unused_
+ignored-argument-names=_.*|^ignored_|^unused_
+init-import=no
+redefining-builtins-modules=six.moves,past.builtins,future.builtins
+
+[LOGGING]
+
+logging-modules=logging
+
+[BASIC]
+
+argument-naming-style=snake_case
+
+attr-naming-style=snake_case
+class-attribute-naming-style=any
+class-naming-style=PascalCase
+const-naming-style=UPPER_CASE
+function-naming-style=snake_case
+method-naming-style=snake_case
+module-naming-style=snake_case
+inlinevar-naming-style=any
+variable-naming-style=snake_case
+include-naming-hint=no
+
+bad-names=foo,
+          bar,
+          baz,
+          toto,
+          tutu,
+          tata
+
+docstring-min-length=-1
+good-names=i,
+           j,
+           k,
+           ex,
+           Run,
+           _
+
+no-docstring-rgx=^_
+property-classes=abc.abstractproperty
+
+[FORMAT]
+
+ignore-long-lines=^\s*(# )?<?https?://\S+>?$
+indent-after-paren=4
+indent-string='    '
+max-line-length=200
+max-module-lines=2000
+
+no-space-check=trailing-comma,
+               dict-separator
+
+single-line-class-stmt=no
+single-line-if-stmt=no
+
+
+[MISCELLANEOUS]
+
+notes=FIXME,
+      XXX,
+      TODO
+
+[TYPECHECK]
+
+contextmanager-decorators=contextlib.contextmanager
+ignore-mixin-members=yes
+ignore-on-opaque-inference=yes
+ignored-classes=optparse.Values,thread._local,_thread._local
+missing-member-hint=yes
+missing-member-hint-distance=1
+missing-member-max-choices=1
+
+
+[SIMILARITIES]
+
+ignore-comments=yes
+ignore-docstrings=yes
+ignore-imports=no
+min-similarity-lines=4
+
+
+[SPELLING]
+
+max-spelling-suggestions=4
+spelling-dict=
+spelling-ignore-words=
+spelling-private-dict-file=
+spelling-store-unknown-words=no
+
+
+[CLASSES]
+
+defining-attr-methods=__init__,
+                      __new__,
+                      setUp
+
+exclude-protected=_asdict,
+                  _fields,
+                  _replace,
+                  _source,
+                  _make
+
+valid-classmethod-first-arg=cls
+valid-metaclass-classmethod-first-arg=mcs
+
+
+[IMPORTS]
+
+allow-wildcard-with-all=no
+analyse-fallback-blocks=no
+deprecated-modules=optparse,tkinter.tix
+known-third-party=enchant
+
+
+[DESIGN]
+
+max-args=5
+max-attributes=7
+max-bool-expr=5
+max-branches=12
+max-locals=15
+max-parents=7
+max-public-methods=20
+max-returns=6
+max-statements=50
+min-public-methods=2
+
+
+[EXCEPTIONS]
+
+overgeneral-exceptions=Exception

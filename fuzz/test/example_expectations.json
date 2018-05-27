@@ -1,0 +1,63 @@
+{
+  "domains": {
+    "example": {
+      "host": "localhost",
+      "port": null,
+      "protocol": "http"
+    },
+    "local": {
+      "host": "localhost",
+      "port": 8080,
+      "protocol": "http"
+    }
+  },
+  "expectations": [
+    "expectation = True"
+  ],
+  "endpoints": [
+    {
+      "uri": "/json",
+      "comment": "videos",
+      "methods": [
+        "POST"
+      ],
+      "headers": {
+        "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8"
+      },
+      "timeout": 2.5,
+      "input": {
+        "body": {
+          "accessible": false,
+          "dynamicField": "stuff {placeholder}",
+          "owner": "user-1",
+          "parent": {
+            "child": 23,
+            "child2": {
+              "grandchild": "weirdval"
+            }
+          },
+          "array": [
+            {
+              "child": 23,
+              "child2": {
+                "grandchild": "weirdval"
+              }
+            },
+            {
+              "child": 23,
+              "child2": {
+                "grandchild": "weirdval"
+              }
+            },
+            {
+              "child": 23,
+              "child2": {
+                "grandchild": "weirdval"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,197 @@
+{
+  "domains": {
+    "example": {
+      "host": "localhost",
+      "port": null,
+      "protocol": "http"
+    },
+    "local": {
+      "host": "localhost",
+      "port": 8080,
+      "protocol": "http"
+    }
+  },
+  "requestsPerSecond": 500,
+  "endpoints": [
+    {
+      "uri": "/json",
+      "comment": "videos",
+      "methods": ["POST"],
+      "headers": {
+        "Authorization": "Bearer {token}",
+        "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8"
+      },
+      "timeout": 2.5,
+      "input": {
+        "body": {
+          "accessible": false,
+          "dynamicField": "stuff {placeholder}",
+          "owner": "user-1",
+          "parent": {
+            "child": 23,
+            "child2": {
+              "grandchild": "weirdval"
+            }
+          },
+          "array": [
+            {
+              "child": 23,
+              "child2": {
+                "grandchild": "weirdval"
+              }
+            },
+            {
+              "child": 23,
+              "child2": {
+                "grandchild": "weirdval"
+              }
+            },
+            {
+              "child": 23,
+              "child2": {
+                "grandchild": "weirdval"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "uri": "/watch",
+      "comment": "watch video",
+      "methods": ["GET"],
+      "input": {
+        "query": {
+          "v": "9bZkp7q19f0",
+          "t": "{time}"
+        }
+      }
+    },
+    {
+      "uri": "/sleepabit",
+      "comment": "watch video",
+      "methods": ["GET"],
+      "input": {
+        "query": {
+          "v": "9bZkp7q19f0",
+          "t": "{time}"
+        }
+      },
+      "expectations": [
+        "import string",
+        "expectation = result.get('httpcode', 0) == 200 and string.digits == '0123456789'",
+        "expectation = expectation and result.get('time', 0) >= 1"
+      ]
+    },
+    {
+      "uri": "/delayabit",
+      "comment": "delay video",
+      "methods": ["GET"],
+      "requestsPerSecond": 2.5,
+      "input": {}
+    },
+    {
+      "uri": "/query/string",
+      "comment": "query string endpoint",
+      "methods": ["GET"],
+      "input": {
+        "query": {
+          "int": 0,
+          "list": [1, 2, 3],
+          "string": "a",
+          "bool": false,
+          "float": 0.1
+        }
+      }
+    },
+    {
+      "uri": "/complex/qstring",
+      "comment": "query string with complex parameters",
+      "methods": ["GET"],
+      "input": {
+        "query": {
+          "obj": {"a": {"b": []}},
+          "list": [[[1], [1]]]
+        }
+      }
+    },
+    {
+      "uri": "/multiple",
+      "comment": "this uri has a GET method",
+      "methods": ["GET"],
+      "input": {
+        "query": {
+          "stuff": false
+        }
+      }
+    },
+    {
+      "uri": "/multiple",
+      "comment": "also has a POST method",
+      "methods": ["POST"],
+      "input": {
+        "body": {
+          "stuff": false
+        }
+      }
+    },
+    {
+      "uri": "/multiple",
+      "comment": "supports both PUT and PATCH",
+      "methods": ["PUT", "PATCH"],
+      "input": {
+        "body": {
+          "stuff": false
+        }
+      }
+    },
+    {
+      "uri": "/any/method",
+      "comment": "all methods are implicitly supported",
+      "input": {
+        "body": {
+          "stuff": false,
+          "sherb": "asdf"
+        }
+      }
+    },
+    {
+      "uri": "/{someId}",
+      "comment": "pivoted uri",
+      "methods": ["GET"],
+      "input": {
+        "body": {
+        }
+      }
+    },
+    {
+      "uri": "/{otherId}",
+      "comment": "another pivoted uri",
+      "methods": ["GET"],
+      "input": {
+        "body": {
+        }
+      }
+    },
+    {
+      "uri": "/poorly/designed/endpoint",
+      "comment": "supports any method and has both a body and a query string",
+      "headers": {
+        "Authorization": "Bearer foobar",
+        "Accept": "application/json"
+      },
+      "input": {
+        "body": {
+          "foo": false,
+          "bar": 0,
+          "puu": ""
+        },
+        "query": {
+          "wot": "",
+          "ferr": 5,
+          "doh": false
+        }
+      }
+    }
+  ]
+}
