@@ -38,16 +38,10 @@ $ sudo make docker-build
 
 Running HotFuzz natively requires either to modify your current Python environment or to use a [Python virtual environment](https://docs.python.org/3/tutorial/venv.html) to isolate your working environment.
 
-To install the HotFuzz dependencies natively:
+To install HotFuzz:
 
 ```
 $ pip3.6 install .
-```
-
-To use instead a Python virtual environment:
-
-```
-$ source run_venv.sh
 ```
 
 ### Docker Configuration

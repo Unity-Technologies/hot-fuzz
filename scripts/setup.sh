@@ -16,11 +16,6 @@ fi
 
 echo "done"
 
-pip3 show -q virtualenv
-if [ $? -ne 0 ]; then
-    pip3 install virtualenv
-fi
-
 testhooktype="pre-push"
 testhook="../.git/hooks/$testhooktype"
 testcmd="PYTHONPATH=$(pwd) VERBOSE=1 make test"
@@ -28,9 +23,6 @@ testcmd="PYTHONPATH=$(pwd) VERBOSE=1 make test"
 echo -n "setting $testhooktype hook for python unit tests ... "
 
 echo "#!/bin/bash" > $testhook
-echo "./run_venv.sh setup_virtualenv" >> $testhook
-echo "source .env/bin/activate" >> $testhook
-echo "./run_venv.sh install" >> $testhook
 echo $testcmd >> $testhook
 chmod +x $testhook
 
