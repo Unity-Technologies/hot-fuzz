@@ -19,6 +19,12 @@ These are the software requirements to be met:
 - wget
 - [Docker => 17.x.x](https://www.docker.com/community-edition#/download)
 
+First, clone this repo:
+
+```
+git clone --recurse-submodules git@github.com:sherbie/hot-fuzz.git
+```
+
 Next, this is how you run the setup process:
 
 ```
