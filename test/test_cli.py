@@ -1,13 +1,13 @@
-import unittest
-import sys
-import os
 import json
-import xmlrunner
+import os
+import sys
+import unittest
+
 import coverage
+import xmlrunner
 
 from fuzz.cli import Client
 from fuzz.config.config import Config
-
 
 test_config = Config()
 
