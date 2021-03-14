@@ -41,3 +41,8 @@ lint: clean
 lint-apply: clean
 	pip install -U darker isort
 	darker --revision=origin/master --isort fuzz test setup.py
+
+git-hooks:
+	pip install pre-commit
+	pre-commit --version
+	pre-commit install

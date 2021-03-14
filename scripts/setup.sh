@@ -21,30 +21,6 @@ if [ $? -ne 0 ]; then
     pip3 install virtualenv
 fi
 
-linter="pycodestyle"
-options="--ignore=E501,E124 --show-source --exclude=.env"
-lintcmd="$linter $options $(cd .. ; pwd)"
-
-linthooktype="pre-commit"
-linthook="../.git/hooks/$linthooktype"
-
-# pylint pre-commit hook on git
-echo -n "setting up $linthooktype hook for python git-pylint-commit-hook and $linter... "
-
-echo "#!/bin/bash" > $linthook
-echo "./run_venv.sh setup_virtualenv" >> $linthook
-echo "source .env/bin/activate" >>  $linthook
-echo "./run_venv.sh install" >> $linthook
-echo $lintcmd >> $linthook
-echo "git-pylint-commit-hook --limit 10 --pylintrc $(cd .. ; pwd)/pylintrc" >> $linthook
-
-echo "done"
-
-echo -n "setting execute bit for $linthook ..."
-chmod +x $linthook
-
-echo "done"
-
 testhooktype="pre-push"
 testhook="../.git/hooks/$testhooktype"
 testcmd="PYTHONPATH=$(pwd) VERBOSE=1 make test"
