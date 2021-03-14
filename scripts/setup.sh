@@ -4,13 +4,13 @@ cd "$(dirname "$0")"
 
 echo -n "checking dependencies ... "
 
-if ! [ -x "$(command -v python3.5)" ]; then
-    echo "python3 is required"
+if ! [ -x "$(command -v python3.6)" ]; then
+    echo "python3.6 is required"
     exit 1
 fi
 
-if ! [ -x "$(command -v pip3.5)" ]; then
-    echo "pip3 is required"
+if ! [ -x "$(command -v pip3.6)" ]; then
+    echo "pip3.6 is required"
     exit 1
 fi
 

@@ -1,7 +1,7 @@
 #! /bin/bash
 
-PYTHON=${PYTHON:=python3.5}
-PIP=${PIP:=pip3.5}
+PYTHON=${PYTHON:=python3.6}
+PIP=${PIP:=pip3.6}
 
 ####################################
 # Usage
