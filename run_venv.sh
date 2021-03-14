@@ -1,7 +1,7 @@
 #! /bin/bash
 
-PYTHON=${PYTHON:=python3}
-PIP=${PIP:=pip3}
+PYTHON=${PYTHON:=python3.5}
+PIP=${PIP:=pip3.5}
 REQUIREMENTS=requirements.txt
 
 ####################################

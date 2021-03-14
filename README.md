@@ -41,7 +41,7 @@ Running HotFuzz natively requires either to modify your current Python environme
 To install the HotFuzz dependencies natively:
 
 ```
-$ pip3 install -r requirements.txt
+$ pip3.5 install -r requirements.txt
 ```
 
 To use instead a Python virtual environment:
@@ -66,7 +66,7 @@ To run the test suite natively:
 
 ```
 $ make test
-python3 -m unittest test.test_fuzzer
+python3.5 -m unittest test.test_fuzzer
 Starting mock server at 127.0.0.1:8080
 
 Running tests...
@@ -104,7 +104,7 @@ Next, start the testing server to get ready to fuzz it:
 
 ```
 $ make mock-server
-python3 -m fuzz.test.mockserver
+python3.5 -m fuzz.test.mockserver
 Starting mock server at 127.0.0.1:8080
 ```
 
