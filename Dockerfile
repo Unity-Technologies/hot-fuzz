@@ -23,7 +23,7 @@ ADD . /hotfuzz/
 
 RUN git submodule update --init && make -s -C util/radamsa
 
-RUN pip3.5 install -q -r requirements.txt
+RUN pip3.5 install .
 
 RUN mkdir results
 RUN mkdir /toolkit

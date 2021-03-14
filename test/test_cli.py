@@ -5,7 +5,7 @@ import json
 import xmlrunner
 import coverage
 
-from cli import Client
+from fuzz.cli import Client
 from fuzz.config.config import Config
 
 
@@ -103,7 +103,7 @@ class CliTests(unittest.TestCase):
 
     def parse_cli_args(self):
         model_file = self.client.config.example_json_file
-        cmdline_args = ["./cli.py", "-d", "test", "-m", model_file]
+        cmdline_args = ["./cli.py", "-d", "test", "-m", os.path.join("..", model_file)]
         sys.argv = cmdline_args
         self.client.parse_cli_args()
         self.assertEqual(self.client.states, [], "should have empty state list since no state file was provided")

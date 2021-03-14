@@ -41,7 +41,7 @@ Running HotFuzz natively requires either to modify your current Python environme
 To install the HotFuzz dependencies natively:
 
 ```
-$ pip3.5 install -r requirements.txt
+$ pip3.5 install .
 ```
 
 To use instead a Python virtual environment:
@@ -146,7 +146,7 @@ This model instructs HotFuzz to send requests to the service listening for `http
 Run the fuzzer client to send three (`-i=3`) requests using the `tutorial.json` model file (`--model-path fuzz/models/tutorial.json`) against the `example` domain (`--domain example`) with full debug log (`--loglevel 0`) for further analysis:
 
 ```
-$ ./cli.py -i=3 --model-path fuzz/models/tutorial.json --domain example --loglevel 0
+$ hot-fuzz -i=3 --model-path fuzz/models/tutorial.json --domain example --loglevel 0
 ```
 
 Running the fuzzer successfully will generate no feedback output and leave the results under the `results` directory. Here we can have a more detailed look of how HotFuzz has sent the requests and how certain data fields were modified to fuzz the target endpoint.

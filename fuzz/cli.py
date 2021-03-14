@@ -125,7 +125,11 @@ class Client:
                 self.fuzzer_results = fuzzer.fuzz_requests_by_incremental_state(self.parsed_args.iterations)
 
 
-if __name__ == "__main__":
+def main():
     client = Client()
     client.parse_cli_args()
     client.run_fuzzer()
+
+
+if __name__ == "__main__":
+    main()

@@ -2,7 +2,6 @@
 
 PYTHON=${PYTHON:=python3.5}
 PIP=${PIP:=pip3.5}
-REQUIREMENTS=requirements.txt
 
 ####################################
 # Usage
@@ -28,7 +27,7 @@ function activate {
 function install {
     echo -n "installing requirements to virtual environment ... "
     if [ -f $REQUIREMENTS ]; then
-        $PIP install -q -r $REQUIREMENTS
+        $PIP install .
     fi
     echo "done"
 }
